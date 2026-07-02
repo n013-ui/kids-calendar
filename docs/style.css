@@ -1,0 +1,264 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: #fdf6ec;
+  color: #333;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px 16px 64px;
+}
+
+header.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+select, input, textarea, button {
+  font-size: 1rem;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+}
+
+button {
+  background: #ff9770;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:active { transform: scale(0.98); }
+
+button.secondary {
+  background: #eee;
+  color: #333;
+}
+
+button.icon {
+  padding: 8px 12px;
+}
+
+.month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 8px 0 16px;
+}
+
+.month-nav .label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  min-width: 8em;
+  text-align: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #999;
+  padding-bottom: 4px;
+}
+
+.day-cell {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: white;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.day-cell.empty { visibility: hidden; cursor: default; }
+.day-cell.today { border-color: #ff9770; font-weight: 700; }
+.day-cell.selected { background: #ffe8d6; }
+
+.day-cell .dot-row {
+  display: flex;
+  gap: 3px;
+  margin-top: 3px;
+}
+
+.day-cell .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.day-cell .check {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  font-size: 0.7rem;
+}
+
+.agenda {
+  margin-top: 20px;
+}
+
+.agenda h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.event-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: white;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 10px;
+  border-left: 6px solid #ccc;
+}
+
+.event-card.done { opacity: 0.55; }
+
+.event-card .time {
+  font-weight: 700;
+  min-width: 4.5em;
+  color: #666;
+}
+
+.event-card .title {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.event-card.done .title { text-decoration: line-through; }
+
+.event-card .note {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 2px;
+}
+
+.event-card .check-btn {
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.event-card.done .check-btn {
+  background: #6fcf97;
+  border-color: #6fcf97;
+  color: white;
+}
+
+.empty-msg {
+  color: #999;
+  text-align: center;
+  padding: 24px 0;
+}
+
+/* --- Admin page --- */
+
+.login-box {
+  max-width: 320px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.login-box input {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.login-box button { width: 100%; }
+
+form.event-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+form.event-form .full { grid-column: 1 / -1; }
+
+form.event-form label {
+  font-size: 0.85rem;
+  color: #666;
+  display: block;
+  margin-bottom: 4px;
+}
+
+form.event-form input, form.event-form textarea {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+table.event-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+table.event-table th, table.event-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+table.event-table tr.done td { color: #aaa; }
+
+.row-actions button { margin-right: 6px; padding: 6px 10px; font-size: 0.85rem; }
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}

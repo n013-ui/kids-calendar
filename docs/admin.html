@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>行事曆後台 - 媽媽專用</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loginView" class="container">
+  <div class="login-box">
+    <h1>🔒 媽媽後台</h1>
+    <input type="password" id="passwordInput" placeholder="請輸入密碼">
+    <button id="loginBtn">登入</button>
+    <p id="loginError" style="color:#e05; display:none;">密碼錯誤，請再試一次</p>
+  </div>
+</div>
+
+<div id="adminView" class="container" style="display:none;">
+  <header class="top">
+    <h1>🗓️ 行事曆後台</h1>
+    <button class="secondary" id="logoutBtn">登出</button>
+  </header>
+
+  <form class="event-form" id="eventForm">
+    <input type="hidden" id="eventId">
+    <div>
+      <label>小孩姓名</label>
+      <input type="text" id="fChildName" list="childList" required>
+      <datalist id="childList"></datalist>
+    </div>
+    <div>
+      <label>日期</label>
+      <input type="date" id="fDate" required>
+    </div>
+    <div>
+      <label>開始時間</label>
+      <input type="time" id="fStart">
+    </div>
+    <div>
+      <label>結束時間</label>
+      <input type="time" id="fEnd">
+    </div>
+    <div class="full">
+      <label>標題</label>
+      <input type="text" id="fTitle" required>
+    </div>
+    <div class="full">
+      <label>備註（選填）</label>
+      <textarea id="fNote" rows="2"></textarea>
+    </div>
+    <div class="full form-actions">
+      <button type="submit" id="submitBtn">新增行事</button>
+      <button type="button" class="secondary" id="cancelEditBtn" style="display:none;">取消編輯</button>
+      <button type="button" class="secondary" id="refreshBtn">🔄 重新整理</button>
+    </div>
+  </form>
+
+  <div class="filters">
+    <select id="filterChild"><option value="">全部小孩</option></select>
+    <input type="text" id="filterSearch" placeholder="搜尋標題...">
+  </div>
+
+  <table class="event-table">
+    <thead>
+      <tr><th>小孩</th><th>日期</th><th>時間</th><th>標題</th><th>備註</th><th>完成</th><th>操作</th></tr>
+    </thead>
+    <tbody id="eventTableBody"></tbody>
+  </table>
+</div>
+
+<script src="config.js"></script>
+<script src="shared.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

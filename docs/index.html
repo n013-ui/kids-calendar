@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>我的行事曆</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <header class="top">
+    <h1>📅 我的行事曆</h1>
+    <select id="childSelect"></select>
+  </header>
+
+  <div class="month-nav">
+    <button class="icon secondary" id="prevMonth">‹</button>
+    <div class="label" id="monthLabel"></div>
+    <button class="icon secondary" id="nextMonth">›</button>
+  </div>
+
+  <div class="calendar-grid" id="weekdayRow"></div>
+  <div class="calendar-grid" id="calendarGrid"></div>
+
+  <div style="text-align:center; margin-top:12px;">
+    <button class="secondary" id="todayBtn">回到今天</button>
+    <button class="secondary" id="refreshBtn">🔄 重新整理</button>
+  </div>
+
+  <div class="agenda">
+    <h2 id="agendaLabel"></h2>
+    <div id="agendaList"></div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="shared.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
